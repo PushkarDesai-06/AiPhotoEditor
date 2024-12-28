@@ -24,7 +24,7 @@ const DEFAULT_OPTIONS = [
     {
         name: 'Saturation',
         property: 'saturate',
-        value: 100.00,
+        value: 100,
         range: {
             min: 0.00,
             max: 200.00
@@ -84,9 +84,25 @@ let activeIndex = 0;
 let selectedOption = DEFAULT_OPTIONS[activeIndex];
 const slider = document.querySelector('.slider')
 const mainImg = document.querySelector('.main-image')
+const inputValue = document.querySelector('.inputValue')
 // {on change} => bg.style.active[property]  = input.value
 
-slider.addEventListener('change', ({ target }) => {
+inputValue.addEventListener('change', ({ target }) => {
+    DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
+    selectedOption = DEFAULT_OPTIONS[activeIndex];
+    mainImg.style.filter = ''
+    DEFAULT_OPTIONS.forEach((option, index) => {
+
+
+        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
+        inputValue.value = target.value
+        slider.value = target.value
+
+
+    })
+})
+
+slider.addEventListener('input', ({ target }) => {
 
     // mainImg.style
     DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
@@ -94,13 +110,10 @@ slider.addEventListener('change', ({ target }) => {
     mainImg.style.filter = ''
     DEFAULT_OPTIONS.forEach((option, index) => {
 
-        if (index == 2) {
 
-            mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
-        } else {
+        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
+        inputValue.value = target.value
 
-            mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
-        }
 
     })
 
@@ -129,6 +142,7 @@ document.addEventListener('click', e => {
         })
 
         slider.value = DEFAULT_OPTIONS[activeIndex].value
+        inputValue.value = DEFAULT_OPTIONS[activeIndex].value
         slider.min = DEFAULT_OPTIONS[activeIndex].range.min
         slider.max = DEFAULT_OPTIONS[activeIndex].range.max
     }
@@ -147,3 +161,24 @@ DEFAULT_OPTIONS.map((props, index) => {
 
 sidebarContainer.removeChild(sidebarItem)
 
+document.getElementById('download-btn').addEventListener('click', () => {
+    const img = document.querySelector('.main-image');
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('crossOrigin', 'anonymous')
+    const ctx = canvas.getContext('2d');
+    const filters = img.style.filter;
+
+    // Set canvas dimensions
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+
+    // Apply filters and draw the image on the canvas
+    ctx.filter = filters;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    // Create a link to download the image
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'edited-image.png';
+    link.click();
+});

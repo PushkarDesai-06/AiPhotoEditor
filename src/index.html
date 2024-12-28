@@ -8,32 +8,44 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container1 h-screen w-screen bg-[#DADADA]">
+    <div class="container1 h-screen w-screen bg-[#131313]">
       <div class="image flex items-center">
         <img
-          class="main-image max-w-[600px] mx-auto my-auto border border-black p-4"
-          src="https://picsum.photos/1000"
+          class="main-image max-w-[600px] mx-auto my-auto rounded-xl overflow-hidden shadow-xl"
+          src="../Assets/2676bccd41d36f4b45af4872ccebc360.jpg"
           alt=""
+          crossorigin="anonymous"
         />
       </div>
       <div
-        class="sidebar-container bg-purple-100 flex flex-col border-l-2 border-purple-800"
+        class="sidebar-container bg-[#383838] flex flex-col border-l-2 border-red-500 text-white"
       >
         <div class="sidebarItem-container cursor-pointer w-full">
           <button
-            class="sidebarItem p-4 bg-transparent hover:bg-purple-400 transition-all my-1 w-full"
-          >
-            Sidebar Item
-          </button>
-          <div class="h-[0.5px] bg-purple-800 w-[80%] ml-[10%]"></div>
+            class="sidebarItem p-4 bg-transparent hover:bg-slate-100 hover:text-black transition-all my-1 w-full"
+          ></button>
+          <div class="h-[1px] bg-red-500 w-[80%] ml-[10%]"></div>
         </div>
       </div>
-      <div class="slider-container mt-8 p-8">
+      <div
+        class="flex justify-around slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838]"
+      >
+        <input
+          type="number"
+          class="inputValue self-center text-white px-4 py-2 bg-red-500 rounded-md border border-white max-w-20 text-center"
+          placeholder="100"
+        />
         <input
           draggable="false"
           type="range"
-          class="slider w-full cursor-pointer transition-all"
+          class="slider w-[70%] cursor-pointer transition-all text-red-500 accent-red-500"
         />
+        <button
+          id="download-btn"
+          class="px-8 py-1 bg-red-500 text-white rounded-md border-white border hover:bg-red-800 transition-all"
+        >
+          Download Image
+        </button>
       </div>
     </div>
 

@@ -4,8 +4,8 @@
 
 .container1 {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: 1fr auto;
+  grid-template-columns: 0.96fr auto;
+  grid-template-rows: 0.96fr auto;
   grid-template-areas:
     "image sidebar"
     "slider sidebar";
@@ -25,9 +25,20 @@
   grid-area: sidebar;
 }
 .active {
-  background-color: #8054e6 !important; /* Equivalent to bg-purple-500 in Tailwind CSS */
-  color: white;
+  background-color: #ef4444 !important; /* Equivalent to bg-purple-500 in Tailwind CSS */
+  color: white !important;
 }
 .slider-container {
   grid-area: slider;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
