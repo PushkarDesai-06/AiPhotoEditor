@@ -1,3 +1,7 @@
+.body {
+  transition: 0.3s;
+}
+
 .container1 {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -13,13 +17,16 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
+  filter: blur(0px) contrast(100%) saturate(3);
+  /* filter: contrast(100%); */
 }
 
 .sidebar-container {
   grid-area: sidebar;
 }
 .active {
-  @apply bg-purple-500;
+  background-color: #8054e6 !important; /* Equivalent to bg-purple-500 in Tailwind CSS */
+  color: white;
 }
 .slider-container {
   grid-area: slider;
