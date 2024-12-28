@@ -9,7 +9,13 @@
   </head>
   <body>
     <div class="container1 h-screen w-screen bg-[#DADADA]">
-      <div class="main-image"></div>
+      <div class="image flex items-center">
+        <img
+          class="main-image max-w-[600px] mx-auto my-auto border border-black p-4"
+          src="https://picsum.photos/1000"
+          alt=""
+        />
+      </div>
       <div
         class="sidebar-container bg-purple-100 flex flex-col border-l-2 border-purple-800"
       >
@@ -24,6 +30,7 @@
       </div>
       <div class="slider-container mt-8 p-8">
         <input
+          draggable="false"
           type="range"
           class="slider w-full cursor-pointer transition-all"
         />

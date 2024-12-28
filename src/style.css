@@ -13,7 +13,7 @@
 
 .main-image {
   grid-area: image;
-  background-image: url(https://picsum.photos/1000);
+  background-image: url();
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
