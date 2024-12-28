@@ -1,0 +1,26 @@
+.container1 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "image sidebar"
+    "slider sidebar";
+}
+
+.main-image {
+  grid-area: image;
+  background-image: url(https://picsum.photos/1000);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+.sidebar-container {
+  grid-area: sidebar;
+}
+.active {
+  @apply bg-purple-500;
+}
+.slider-container {
+  grid-area: slider;
+}
