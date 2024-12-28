@@ -9,13 +9,13 @@
   </head>
   <body>
     <div class="container1 h-screen w-screen bg-[#131313]">
-      <div class="image flex items-center">
+      <div class="image flex items-center relative">
         <label
           id="label"
           for="fileInput"
-          class="opacity-100 text-white relative left-[50%] -translate-x-1/2"
+          class="opacity-100 text-white absolute left-[50%] -translate-x-1/2"
           ><h1
-            class="text-4xl w-auto text-nowrap bg-red-500 p-8 rounded-md border border-white"
+            class="sm:text-4xl w-auto sm:text-nowrap text-wrap bg-red-500 sm:p-8 p-2 text-xl rounded-md border border-white"
           >
             Drag or click to upload
           </h1></label
@@ -26,10 +26,10 @@
           type="file"
           accept="image/*"
           onchange="uploaded(event)"
-          class="cursor-pointer m-auto p-8 rounded-md text-white bg-transparent text-transparent w-full h-full opacity-0"
+          class="cursor-pointer m-auto p-8 rounded-md text-white bg-transparent text-transparent w-full h-full opacity-0 relative"
         />
         <img
-          class="main-image max-w-[600px] mx-auto my-auto rounded-xl overflow-hidden shadow-xl hidden"
+          class="main-image sm:max-w-[400px] sm:max-h-[500px] sm:w-auto mx-auto rounded-xl overflow-hidden hidden w-[300px]"
           src=""
           alt=""
           crossorigin="anonymous"
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div
-        class="flex justify-around slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838]"
+        class="flex flex-col sm:flex-row justify-evenly items-center gap-2 sm:justify-around slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838]"
       >
         <input
           type="number"
@@ -56,14 +56,14 @@
         <input
           draggable="false"
           type="range"
-          class="slider w-[70%] cursor-pointer transition-all text-red-500 accent-red-500"
+          class="slider w-[70%] cursor-pointer transition-all text-red-500 accent-red-500 flex-grow-1"
           min="0"
           max="200"
           value="100"
         />
         <button
           id="download-btn"
-          class="px-8 py-1 bg-red-500 text-white rounded-md border-white border hover:bg-red-800 transition-all"
+          class="px-8 py-2 bg-red-500 text-white rounded-md border-white border hover:bg-red-800 transition-all flex-grow-0"
         >
           Download Image
         </button>

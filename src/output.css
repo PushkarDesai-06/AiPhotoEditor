@@ -578,6 +578,14 @@ video {
   left: 6rem;
 }
 
+.right-1\/2 {
+  right: 50%;
+}
+
+.left-\[100\%\] {
+  left: 100%;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -701,6 +709,10 @@ video {
   width: auto;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
 .min-w-\[\] {
   min-width: ;
 }
@@ -731,6 +743,22 @@ video {
 
 .max-w-20 {
   max-width: 5rem;
+}
+
+.max-w-\[\] {
+  max-width: ;
+}
+
+.max-w-\[800px\] {
+  max-width: 800px;
+}
+
+.max-w-\[700px\] {
+  max-width: 700px;
+}
+
+.flex-grow-0 {
+  flex-grow: 0;
 }
 
 .-translate-x-\[50\%\] {
@@ -788,6 +816,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .self-center {
@@ -997,6 +1029,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1027,6 +1063,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1034,6 +1075,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-white {
@@ -1168,4 +1214,81 @@ video {
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 640px) {
+  .sm\:max-h-\[600px\] {
+    max-height: 600px;
+  }
+
+  .sm\:max-h-\[500px\] {
+    max-height: 500px;
+  }
+
+  .sm\:w-auto {
+    width: auto;
+  }
+
+  .sm\:min-w-\[600px\] {
+    min-width: 600px;
+  }
+
+  .sm\:min-w-\[500px\] {
+    min-width: 500px;
+  }
+
+  .sm\:max-w-\[600px\] {
+    max-width: 600px;
+  }
+
+  .sm\:max-w-\[700px\] {
+    max-width: 700px;
+  }
+
+  .sm\:max-w-\[400px\] {
+    max-width: 400px;
+  }
+
+  .sm\:scale-90 {
+    --tw-scale-x: .9;
+    --tw-scale-y: .9;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:justify-around {
+    justify-content: space-around;
+  }
+
+  .sm\:overflow-hidden {
+    overflow: hidden;
+  }
+
+  .sm\:text-nowrap {
+    text-wrap: nowrap;
+  }
+
+  .sm\:p-8 {
+    padding: 2rem;
+  }
+
+  .sm\:p-2 {
+    padding: 0.5rem;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
