@@ -94,7 +94,12 @@ const uploaded = e => {
     mainImg.src = URL.createObjectURL(e.target.files[0]);
     fileInput.style.display = 'none'
     mainImg.style.display = 'block'
+    slider.style.display = 'block'
     label.style.display = 'none'
+    document.getElementById('download-btn').disabled = false;
+    slider.disabled = false;
+    inputValue.disabled = false;
+    document.querySelector('.slider-container').classList.remove('blocked')
 }
 
 DEFAULT_OPTIONS.map((props, index) => {

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Photo</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./output.css" />
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -46,14 +47,16 @@
         </div>
       </div>
       <div
-        class="flex flex-col sm:flex-row justify-evenly items-center gap-2 sm:justify-around slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838]"
+        class="flex flex-col sm:flex-row justify-evenly items-center gap-2 sm:gap-6 sm:justify-center slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838] blocked"
       >
         <input
+          disabled
           type="number"
           class="inputValue self-center text-white px-4 py-2 bg-red-500 rounded-md border border-white max-w-20 text-center"
           value="100"
         />
         <input
+          disabled
           draggable="false"
           type="range"
           class="slider w-[70%] cursor-pointer transition-all text-red-500 accent-red-500 flex-grow-1"
@@ -62,8 +65,10 @@
           value="100"
         />
         <button
+          disabled
           id="download-btn"
           class="px-8 py-2 bg-red-500 text-white rounded-md border-white border hover:bg-red-800 transition-all flex-grow-0"
+          disabled
         >
           Download Image
         </button>

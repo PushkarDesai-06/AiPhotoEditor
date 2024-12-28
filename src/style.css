@@ -43,3 +43,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.blocked,
+.blocked * {
+  filter: grayscale(100%);
+  cursor: not-allowed !important;
+}
