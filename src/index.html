@@ -10,9 +10,27 @@
   <body>
     <div class="container1 h-screen w-screen bg-[#131313]">
       <div class="image flex items-center">
+        <label
+          id="label"
+          for="fileInput"
+          class="opacity-100 text-white relative left-[50%] -translate-x-1/2"
+          ><h1
+            class="text-4xl w-auto text-nowrap bg-red-500 p-8 rounded-md border border-white"
+          >
+            Drag or click to upload
+          </h1></label
+        >
+        <input
+          name="fileInput"
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          onchange="uploaded(event)"
+          class="cursor-pointer m-auto p-8 rounded-md text-white bg-transparent text-transparent w-full h-full opacity-0"
+        />
         <img
-          class="main-image max-w-[600px] mx-auto my-auto rounded-xl overflow-hidden shadow-xl"
-          src="../Assets/2676bccd41d36f4b45af4872ccebc360.jpg"
+          class="main-image max-w-[600px] mx-auto my-auto rounded-xl overflow-hidden shadow-xl hidden"
+          src=""
           alt=""
           crossorigin="anonymous"
         />
@@ -33,12 +51,15 @@
         <input
           type="number"
           class="inputValue self-center text-white px-4 py-2 bg-red-500 rounded-md border border-white max-w-20 text-center"
-          placeholder="100"
+          value="100"
         />
         <input
           draggable="false"
           type="range"
           class="slider w-[70%] cursor-pointer transition-all text-red-500 accent-red-500"
+          min="0"
+          max="200"
+          value="100"
         />
         <button
           id="download-btn"

@@ -85,7 +85,34 @@ let selectedOption = DEFAULT_OPTIONS[activeIndex];
 const slider = document.querySelector('.slider')
 const mainImg = document.querySelector('.main-image')
 const inputValue = document.querySelector('.inputValue')
-// {on change} => bg.style.active[property]  = input.value
+const fileInput = document.querySelector('#fileInput')
+const label = document.querySelector('#label')
+
+// console.log(fileInput);
+
+const uploaded = e => {
+    mainImg.src = URL.createObjectURL(e.target.files[0]);
+    fileInput.style.display = 'none'
+    mainImg.style.display = 'block'
+    label.style.display = 'none'
+}
+
+DEFAULT_OPTIONS.map((props, index) => {
+    let node = sidebarItem.cloneNode(true)
+    node.childNodes[1].innerText = props.name
+    node.setAttribute('key', index)
+    node.setAttribute('name', props.name)
+    node.setAttribute('active', activeIndex === index)
+
+    sidebarContainer.appendChild(node)
+})
+
+sidebarContainer.removeChild(sidebarItem)
+document.querySelectorAll('.sidebarItem-container')[0].children[0].classList.add('active')
+document.querySelectorAll('.sidebarItem-container')[0].setAttribute('active', true)
+
+
+
 
 inputValue.addEventListener('change', ({ target }) => {
     DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
@@ -104,7 +131,7 @@ inputValue.addEventListener('change', ({ target }) => {
 
 slider.addEventListener('input', ({ target }) => {
 
-    // mainImg.style
+
     DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
     selectedOption = DEFAULT_OPTIONS[activeIndex];
     mainImg.style.filter = ''
@@ -117,18 +144,15 @@ slider.addEventListener('input', ({ target }) => {
 
     })
 
-
-    // console.log(DEFAULT_OPTIONS[activeIndex]);
 })
 
 document.addEventListener('click', e => {
     if (e.target.classList[0] == 'sidebarItem') {
-        // console.log(e);
+
         activeIndex = Number(e.target.parentElement.getAttribute('key'))
         console.log(activeIndex);
 
         let components = document.querySelectorAll('.sidebarItem-container')
-        // console.log(components);
 
         components.forEach((component, index) => {
             if (index == activeIndex) {
@@ -149,17 +173,6 @@ document.addEventListener('click', e => {
 
 })
 
-DEFAULT_OPTIONS.map((props, index) => {
-    let node = sidebarItem.cloneNode(true)
-    node.childNodes[1].innerText = props.name
-    node.setAttribute('key', index)
-    node.setAttribute('name', props.name)
-    node.setAttribute('active', activeIndex === index)
-
-    sidebarContainer.appendChild(node)
-})
-
-sidebarContainer.removeChild(sidebarItem)
 
 document.getElementById('download-btn').addEventListener('click', () => {
     const img = document.querySelector('.main-image');
