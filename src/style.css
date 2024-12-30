@@ -21,9 +21,10 @@ body {
   /* filter: blur(0px) contrast(100%) saturate(1); */
   /* filter: contrast(100%); */
 }
-
-.sidebar-container {
+.rightSide-container {
   grid-area: sidebar;
+}
+.sidebar-container {
 }
 .active {
   background-color: #ef4444 !important; /* Equivalent to bg-purple-500 in Tailwind CSS */

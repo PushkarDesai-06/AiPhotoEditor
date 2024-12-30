@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container1 h-screen w-screen bg-[#131313]">
-      <div class="image flex items-center relative">
+      <div class="image flex items-center relative overflow-hidden">
         <label
           id="label"
           for="fileInput"
@@ -37,13 +37,40 @@
         />
       </div>
       <div
-        class="sidebar-container bg-[#383838] flex flex-col border-l-2 border-red-500 text-white"
+        class="rightSide-container border-l-2 text-white border-red-500 bg-[#383838] flex flex-col"
       >
-        <div class="sidebarItem-container cursor-pointer w-full">
-          <button
-            class="sidebarItem p-4 bg-transparent hover:bg-slate-100 hover:text-black transition-all my-1 w-full"
-          ></button>
-          <div class="h-[1px] bg-red-500 w-[80%] ml-[10%]"></div>
+        <div class="sidebar-container flex flex-col">
+          <div class="sidebarItem-container cursor-pointer w-full">
+            <button
+              class="sidebarItem p-4 bg-transparent hover:bg-slate-100 hover:text-black transition-all my-1 w-full"
+            ></button>
+            <div class="h-[1px] bg-red-500 w-[80%] ml-[10%]"></div>
+          </div>
+        </div>
+        <div
+          class="ImageScale flex flex-col justify-center items-center mt-2 border-b border-red-500 w-[80%] mx-auto py-4"
+        >
+          <label
+            for="scale "
+            class="mb-4 font-bold border p-2 rounded-md border-red-500 px-4"
+            >Image Scale</label
+          >
+          <input
+            class="accent-red-500 mb-4"
+            type="range"
+            name="scale"
+            id="imageScale"
+            min="20"
+            max="200"
+            value="100"
+          />
+          <input
+            type="number"
+            name="scale"
+            id="imageScaleValue"
+            value="100"
+            class="text-white bg-red-500 w-20 p-2 text-center rounded-md border"
+          />
         </div>
       </div>
       <div

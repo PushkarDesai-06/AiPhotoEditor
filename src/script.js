@@ -87,8 +87,22 @@ const mainImg = document.querySelector('.main-image')
 const inputValue = document.querySelector('.inputValue')
 const fileInput = document.querySelector('#fileInput')
 const label = document.querySelector('#label')
+const imageScale = document.querySelector('#imageScale')
+const imageScaleValue = document.querySelector('#imageScaleValue')
+//implement image Scaling//
 
 // console.log(fileInput);
+
+imageScaleValue.addEventListener('input', e => {
+
+    mainImg.style.scale = `${e.target.value}%`
+    imageScale.value = e.target.value
+})
+
+imageScale.addEventListener('input', e => {
+    mainImg.style.scale = `${e.target.value}%`
+    imageScaleValue.value = e.target.value
+})
 
 const uploaded = e => {
     mainImg.src = URL.createObjectURL(e.target.files[0]);
