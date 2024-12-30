@@ -24,6 +24,26 @@ body {
 .rightSide-container {
   grid-area: sidebar;
 }
+
+@media (max-width: 600px) {
+  .container1 {
+    display: grid;
+    grid-template-rows: 400px auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "sidebar"
+      "slider";
+  }
+
+  .slider-container {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .sidebar-container {
 }
 .active {

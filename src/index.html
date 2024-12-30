@@ -37,9 +37,11 @@
         />
       </div>
       <div
-        class="rightSide-container border-2 border-r-0 text-white border-red-500 bg-[#383838] flex flex-col rounded-xl h-[80%] my-auto"
+        class="rightSide-container border-2 sm:border-r-0 text-white border-red-500 bg-[#383838] flex flex-col rounded-xl sm:h-[80%] h-auto m-2 mt-6 sm:m-0 sm:my-auto"
       >
-        <div class="sidebar-container flex flex-col">
+        <div
+          class="sidebar-container sm:flex sm:flex-col grid grid-cols-2 grid-rows-3 grid-flow-row"
+        >
           <div class="sidebarItem-container cursor-pointer w-full">
             <button
               class="sidebarItem p-4 bg-transparent hover:bg-slate-100 hover:text-black transition-all my-1 w-full"
@@ -48,33 +50,37 @@
           </div>
         </div>
         <div
-          class="ImageScale flex flex-col justify-center items-center mt-2 border-b border-red-500 w-[80%] mx-auto py-4"
+          class="ImageScale flex flex-col justify-center items-center mt-2 border-b border-red-500 w-full mx-auto py-4"
         >
           <label
             for="scale "
-            class="mb-4 font-bold border p-2 rounded-md border-red-500 px-4"
+            class="mb-4 font-bold border p-2 rounded-md border-red-500 px-4 w-[80%] text-center"
             >Image Scale</label
           >
-          <input
-            class="accent-red-500 mb-4"
-            type="range"
-            name="scale"
-            id="imageScale"
-            min="20"
-            max="250"
-            value="100"
-          />
-          <input
-            type="number"
-            name="scale"
-            id="imageScaleValue"
-            value="100"
-            class="text-white bg-red-500 w-20 p-2 text-center rounded-md border"
-          />
+          <div
+            class="w-full text-center flex sm:flex-col sm:justify-center items-center justify-evenly"
+          >
+            <input
+              class="accent-red-500 mb-4 cursor-pointer w-[60%]"
+              type="range"
+              name="scale"
+              id="imageScale"
+              min="20"
+              max="250"
+              value="100"
+            />
+            <input
+              type="number"
+              name="scale"
+              id="imageScaleValue"
+              value="100"
+              class="text-white bg-red-500 w-20 p-2 text-center rounded-md border"
+            />
+          </div>
         </div>
       </div>
       <div
-        class="flex flex-col sm:flex-row justify-evenly items-center gap-2 sm:gap-6 sm:justify-center slider-container mt-8 p-6 border border-red-500 mx-20 my-4 rounded-xl bg-[#383838] blocked"
+        class="flex flex-col sm:flex-row justify-center items-center m-2 sm:gap-6 sm:justify-center slider-container sm:mt-8 sm:p-6 p-4 border border-red-500 sm:mx-20 rounded-xl bg-[#383838] blocked mb-10"
       >
         <input
           disabled
