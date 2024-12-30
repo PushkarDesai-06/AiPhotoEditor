@@ -114,6 +114,7 @@ const uploaded = e => {
     slider.disabled = false;
     inputValue.disabled = false;
     document.querySelector('.slider-container').classList.remove('blocked')
+    imageScale.disables = false;
 }
 
 DEFAULT_OPTIONS.map((props, index) => {
