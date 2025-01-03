@@ -25,6 +25,28 @@ body {
   grid-area: sidebar;
 }
 
+.rightSide-container::-webkit-scrollbar {
+  position: absolute;
+  /* background-color: #4b4b4b; */
+  background-color: #131313;
+  width: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  /* transition-duration: 0.3s; */
+}
+.rightSide-container::-webkit-scrollbar-thumb {
+  transition: 0.5s;
+  border: 1px solid #ef4444;
+  background-color: white;
+  border-radius: 5px;
+}
+.rightSide-container::-webkit-scrollbar-thumb:hover {
+  transition: 0.5s;
+  background-color: #131313;
+  border: 1px solid #ef4444;
+  border-radius: 5px;
+}
+
 @media (max-width: 600px) {
   .container1 {
     display: grid;
@@ -50,6 +72,8 @@ body {
   background-color: #ef4444 !important; /* Equivalent to bg-purple-500 in Tailwind CSS */
   color: white !important;
 }
+
+
 .slider-container {
   grid-area: slider;
 }
