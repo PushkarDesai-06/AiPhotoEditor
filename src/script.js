@@ -1,3 +1,4 @@
+// Default filter options
 const DEFAULT_OPTIONS = [
     {
         name: 'Brightness',
@@ -78,126 +79,106 @@ const DEFAULT_OPTIONS = [
     },
 ]
 
-const sidebarContainer = document.querySelector('.sidebar-container')
-const sidebarItem = document.querySelector('.sidebarItem-container')
+const sidebarContainer = document.querySelector('.sidebar-container');
+const sidebarItem = document.querySelector('.sidebarItem-container');
 let activeIndex = 0;
 let selectedOption = DEFAULT_OPTIONS[activeIndex];
-const slider = document.querySelector('.slider')
-const mainImg = document.querySelector('.main-image')
-const inputValue = document.querySelector('.inputValue')
-const fileInput = document.querySelector('#fileInput')
-const label = document.querySelector('#label')
-const imageScale = document.querySelector('#imageScale')
-const imageScaleValue = document.querySelector('#imageScaleValue')
-//implement image Scaling//
+const slider = document.querySelector('.slider');
+const mainImg = document.querySelector('.main-image');
+const inputValue = document.querySelector('.inputValue');
+const fileInput = document.querySelector('#fileInput');
+const label = document.querySelector('#label');
+const imageScale = document.querySelector('#imageScale');
+const imageScaleValue = document.querySelector('#imageScaleValue');
 
-// console.log(fileInput);
-
+// Implement image scaling
 imageScaleValue.addEventListener('input', e => {
-
-    mainImg.style.scale = `${e.target.value}%`
-    imageScale.value = e.target.value
-})
+    mainImg.style.scale = `${e.target.value}%`;
+    imageScale.value = e.target.value;
+});
 
 imageScale.addEventListener('input', e => {
-    mainImg.style.scale = `${e.target.value}%`
-    imageScaleValue.value = e.target.value
-})
+    mainImg.style.scale = `${e.target.value}%`;
+    imageScaleValue.value = e.target.value;
+});
 
+// Handle image upload
 const uploaded = e => {
     mainImg.src = URL.createObjectURL(e.target.files[0]);
-    fileInput.style.display = 'none'
-    mainImg.style.display = 'block'
-    slider.style.display = 'block'
-    label.style.display = 'none'
+    fileInput.style.display = 'none';
+    mainImg.style.display = 'block';
+    slider.style.display = 'block';
+    label.style.display = 'none';
     document.getElementById('download-btn').disabled = false;
     slider.disabled = false;
     inputValue.disabled = false;
-    document.querySelector('.slider-container').classList.remove('blocked')
-    imageScale.disables = false;
-}
+    document.querySelector('.slider-container').classList.remove('blocked');
+    imageScale.disabled = false;
+};
 
+// Populate sidebar with filter options
 DEFAULT_OPTIONS.map((props, index) => {
-    let node = sidebarItem.cloneNode(true)
-    node.childNodes[1].innerText = props.name
-    node.setAttribute('key', index)
-    node.setAttribute('name', props.name)
-    node.setAttribute('active', activeIndex === index)
+    let node = sidebarItem.cloneNode(true);
+    node.childNodes[1].innerText = props.name;
+    node.setAttribute('key', index);
+    node.setAttribute('name', props.name);
+    node.setAttribute('active', activeIndex === index);
+    sidebarContainer.appendChild(node);
+});
 
-    sidebarContainer.appendChild(node)
-})
+sidebarContainer.removeChild(sidebarItem);
+document.querySelectorAll('.sidebarItem-container')[0].children[0].classList.add('active');
+document.querySelectorAll('.sidebarItem-container')[0].setAttribute('active', true);
 
-sidebarContainer.removeChild(sidebarItem)
-document.querySelectorAll('.sidebarItem-container')[0].children[0].classList.add('active')
-document.querySelectorAll('.sidebarItem-container')[0].setAttribute('active', true)
-
-
-
-
+// Update filter value on input change
 inputValue.addEventListener('change', ({ target }) => {
-    DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
+    DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value };
     selectedOption = DEFAULT_OPTIONS[activeIndex];
-    mainImg.style.filter = ''
+    mainImg.style.filter = '';
     DEFAULT_OPTIONS.forEach((option, index) => {
+        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `;
+        inputValue.value = target.value;
+        slider.value = target.value;
+    });
+});
 
-
-        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
-        inputValue.value = target.value
-        slider.value = target.value
-
-
-    })
-})
-
+// Update filter value on slider input
 slider.addEventListener('input', ({ target }) => {
-
-
-    DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value }
+    DEFAULT_OPTIONS[activeIndex] = { ...DEFAULT_OPTIONS[activeIndex], value: target.value };
     selectedOption = DEFAULT_OPTIONS[activeIndex];
-    mainImg.style.filter = ''
+    mainImg.style.filter = '';
     DEFAULT_OPTIONS.forEach((option, index) => {
+        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `;
+        inputValue.value = target.value;
+    });
+});
 
-
-        mainImg.style.filter += `${option.property}(${option.value}${option.unit}) `
-        inputValue.value = target.value
-
-
-    })
-
-})
-
+// Handle sidebar item click
 document.addEventListener('click', e => {
     if (e.target.classList[0] == 'sidebarItem') {
-
-        activeIndex = Number(e.target.parentElement.getAttribute('key'))
-        console.log(activeIndex);
-
-        let components = document.querySelectorAll('.sidebarItem-container')
-
+        activeIndex = Number(e.target.parentElement.getAttribute('key'));
+        let components = document.querySelectorAll('.sidebarItem-container');
         components.forEach((component, index) => {
             if (index == activeIndex) {
-                component.setAttribute('active', true)
-                component.childNodes[1].classList.add('active')
+                component.setAttribute('active', true);
+                component.childNodes[1].classList.add('active');
             } else {
-                component.childNodes[1].classList.remove('active')
-                component.setAttribute('active', false)
-
+                component.childNodes[1].classList.remove('active');
+                component.setAttribute('active', false);
             }
-        })
-
-        slider.value = DEFAULT_OPTIONS[activeIndex].value
-        inputValue.value = DEFAULT_OPTIONS[activeIndex].value
-        slider.min = DEFAULT_OPTIONS[activeIndex].range.min
-        slider.max = DEFAULT_OPTIONS[activeIndex].range.max
+        });
+        slider.value = DEFAULT_OPTIONS[activeIndex].value;
+        inputValue.value = DEFAULT_OPTIONS[activeIndex].value;
+        slider.min = DEFAULT_OPTIONS[activeIndex].range.min;
+        slider.max = DEFAULT_OPTIONS[activeIndex].range.max;
     }
+});
 
-})
-
-
+// Handle image download
 document.getElementById('download-btn').addEventListener('click', () => {
     const img = document.querySelector('.main-image');
     const canvas = document.createElement('canvas');
-    canvas.setAttribute('crossOrigin', 'anonymous')
+    canvas.setAttribute('crossOrigin', 'anonymous');
     const ctx = canvas.getContext('2d');
     const filters = img.style.filter;
 
